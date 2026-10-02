@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.lab1024.sa.base.module.support.securityprotect.dao.LoginFailDao">
+<mapper namespace="me.leeshawm.aienglish.base.module.support.securityprotect.dao.LoginFailDao">
 
     <!-- 分页查询 -->
-    <select id="queryPage" resultType="net.lab1024.sa.base.module.support.securityprotect.domain.LoginFailVO">
+    <select id="queryPage" resultType="me.leeshawm.aienglish.base.module.support.securityprotect.domain.LoginFailVO">
         SELECT
         *
         FROM t_login_fail
@@ -29,7 +29,7 @@
 
 
     <select id="selectByUserIdAndUserType"
-            resultType="net.lab1024.sa.base.module.support.securityprotect.domain.LoginFailEntity">
+            resultType="me.leeshawm.aienglish.base.module.support.securityprotect.domain.LoginFailEntity">
         select *
         from t_login_fail
         where user_id = #{userId}

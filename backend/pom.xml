@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>net.lab1024</groupId>
+    <groupId>me.leeshawm</groupId>
     <artifactId>sa-parent</artifactId>
     <version>3.0.0</version>
     <packaging>pom</packaging>
 
     <name>sa-parent</name>
-    <description>SmartAdmin project</description>
+    <description>基于生成式大模型的小学英语辅助学习系统-后端父工程</description>
 
 	<modules>
         <module>sa-base</module>

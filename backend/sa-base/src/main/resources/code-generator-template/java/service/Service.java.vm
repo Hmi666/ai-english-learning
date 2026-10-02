@@ -3,10 +3,10 @@ package ${packageName};
 #foreach ($importClass in $importPackageList)
 $importClass
 #end
-import net.lab1024.sa.base.common.util.SmartBeanUtil;
-import net.lab1024.sa.base.common.util.SmartPageUtil;
-import net.lab1024.sa.base.common.domain.ResponseDTO;
-import net.lab1024.sa.base.common.domain.PageResult;
+import me.leeshawm.aienglish.base.common.util.SmartBeanUtil;
+import me.leeshawm.aienglish.base.common.util.SmartPageUtil;
+import me.leeshawm.aienglish.base.common.domain.ResponseDTO;
+import me.leeshawm.aienglish.base.common.domain.PageResult;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;

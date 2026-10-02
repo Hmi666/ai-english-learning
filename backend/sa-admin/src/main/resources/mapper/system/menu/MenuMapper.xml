@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.lab1024.sa.admin.module.system.menu.dao.MenuDao">
+<mapper namespace="me.leeshawm.aienglish.admin.module.system.menu.dao.MenuDao">
 
     <delete id="deleteByMenuIdList">
         <if test="menuIdList != null and menuIdList.size > 0">
@@ -14,14 +14,14 @@
     </delete>
 
     <select id="getByMenuName"
-            resultType="net.lab1024.sa.admin.module.system.menu.domain.entity.MenuEntity">
+            resultType="me.leeshawm.aienglish.admin.module.system.menu.domain.entity.MenuEntity">
         select *
         from t_menu
         where menu_name = #{menuName}
           and parent_id = #{parentId}
           and deleted_flag = #{deletedFlag} limit 1
     </select>
-    <select id="queryMenuList" resultType="net.lab1024.sa.admin.module.system.menu.domain.vo.MenuVO">
+    <select id="queryMenuList" resultType="me.leeshawm.aienglish.admin.module.system.menu.domain.vo.MenuVO">
         select * from t_menu
         where deleted_flag = #{deletedFlag}
         <if test="disabledFlag != null">
@@ -36,7 +36,7 @@
         order by parent_id desc,sort asc
     </select>
     <select id="getPointListByMenuId"
-            resultType="net.lab1024.sa.admin.module.system.menu.domain.entity.MenuEntity">
+            resultType="me.leeshawm.aienglish.admin.module.system.menu.domain.entity.MenuEntity">
         select *
         from t_menu
         where parent_id = #{menuId}
@@ -45,7 +45,7 @@
     </select>
 
     <select id="queryMenuByEmployeeId"
-            resultType="net.lab1024.sa.admin.module.system.menu.domain.vo.MenuVO">
+            resultType="me.leeshawm.aienglish.admin.module.system.menu.domain.vo.MenuVO">
         select t_menu.* from t_menu
         left join t_role_menu on t_role_menu.menu_id = t_menu.menu_id
         left join t_role_employee on t_role_employee.role_id = t_role_menu.role_id
@@ -54,14 +54,14 @@
             and t_role_employee.employee_id = #{employeeId}
         </if>
     </select>
-    <select id="queryMenuByType" resultType="net.lab1024.sa.admin.module.system.menu.domain.entity.MenuEntity">
+    <select id="queryMenuByType" resultType="me.leeshawm.aienglish.admin.module.system.menu.domain.entity.MenuEntity">
         select *
         from t_menu
         where disabled_flag = #{disabledFlag}
           and deleted_flag = #{deletedFlag}
           and menu_type = #{menuType}
     </select>
-    <select id="getByWebPerms" resultType="net.lab1024.sa.admin.module.system.menu.domain.entity.MenuEntity">
+    <select id="getByWebPerms" resultType="me.leeshawm.aienglish.admin.module.system.menu.domain.entity.MenuEntity">
         select *
         from t_menu
         where web_perms = #{webPerms}

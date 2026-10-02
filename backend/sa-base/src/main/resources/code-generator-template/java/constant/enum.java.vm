@@ -2,7 +2,7 @@ package ${packageName};
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import net.lab1024.sa.base.common.enumeration.BaseEnum;
+import me.leeshawm.aienglish.base.common.enumeration.BaseEnum;
 
 /**
  * ${enumDesc}

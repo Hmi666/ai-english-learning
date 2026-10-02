@@ -3,8 +3,8 @@ package ${packageName};
 #foreach ($importClass in $importPackageList)
 $importClass
 #end
-import net.lab1024.sa.base.common.domain.ResponseDTO;
-import net.lab1024.sa.base.common.domain.PageResult;
+import me.leeshawm.aienglish.base.common.domain.ResponseDTO;
+import me.leeshawm.aienglish.base.common.domain.PageResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

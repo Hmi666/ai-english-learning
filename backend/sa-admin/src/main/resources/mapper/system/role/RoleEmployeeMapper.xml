@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.lab1024.sa.admin.module.system.role.dao.RoleEmployeeDao">
+<mapper namespace="me.leeshawm.aienglish.admin.module.system.role.dao.RoleEmployeeDao">
 
 
     <resultMap id="EmployeeVO"
-               type="net.lab1024.sa.admin.module.system.employee.domain.vo.EmployeeVO"></resultMap>
+               type="me.leeshawm.aienglish.admin.module.system.employee.domain.vo.EmployeeVO"></resultMap>
 
 
-    <select id="selectRoleByEmployeeId" resultType="net.lab1024.sa.admin.module.system.role.domain.vo.RoleVO">
+    <select id="selectRoleByEmployeeId" resultType="me.leeshawm.aienglish.admin.module.system.role.domain.vo.RoleVO">
         SELECT t_role.*
         FROM t_role_employee
         left join t_role on t_role_employee.role_id = t_role.role_id
@@ -79,7 +79,7 @@
         </foreach>
     </select>
     <select id="selectRoleIdByEmployeeIdList"
-            resultType="net.lab1024.sa.admin.module.system.role.domain.entity.RoleEmployeeEntity">
+            resultType="me.leeshawm.aienglish.admin.module.system.role.domain.entity.RoleEmployeeEntity">
         SELECT
         *
         FROM
@@ -92,7 +92,7 @@
     </select>
 
     <select id="selectRoleByEmployeeIdList"
-            resultType="net.lab1024.sa.admin.module.system.role.domain.vo.RoleEmployeeVO">
+            resultType="me.leeshawm.aienglish.admin.module.system.role.domain.vo.RoleEmployeeVO">
         SELECT
         t_role_employee.role_id,
         t_role_employee.employee_id,

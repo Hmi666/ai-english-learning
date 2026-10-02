@@ -2,6 +2,6 @@
 
 <tools>
     <toolbox scope="application">
-        <tool key="codeGeneratorTool" class="net.lab1024.sa.base.module.support.codegenerator.util.CodeGeneratorTool"></tool>
+        <tool key="codeGeneratorTool" class="me.leeshawm.aienglish.base.module.support.codegenerator.util.CodeGeneratorTool"></tool>
     </toolbox>
 </tools>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.lab1024.sa.admin.module.business.goods.dao.GoodsDao">
+<mapper namespace="me.leeshawm.aienglish.admin.module.business.goods.dao.GoodsDao">
     <update id="batchUpdateDeleted">
         update t_goods
         set deleted_flag = #{deletedFlag}
@@ -11,7 +11,7 @@
     </update>
 
     <!-- 分页 查询商品 -->
-    <select id="query" resultType="net.lab1024.sa.admin.module.business.goods.domain.vo.GoodsVO">
+    <select id="query" resultType="me.leeshawm.aienglish.admin.module.business.goods.domain.vo.GoodsVO">
         SELECT * FROM t_goods
         <where>
             <if test="query.searchWord != null and query.searchWord !=''">

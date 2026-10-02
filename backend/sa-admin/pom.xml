@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>net.lab1024</groupId>
+        <groupId>me.leeshawm</groupId>
         <artifactId>sa-parent</artifactId>
         <version>3.0.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -13,12 +13,12 @@
     <packaging>jar</packaging>
 
     <name>sa-admin</name>
-    <description>sa-admin project</description>
+    <description>基于生成式大模型的小学英语辅助学习系统-系统管理与业务模块</description>
 
     <dependencies>
 
         <dependency>
-            <groupId>net.lab1024</groupId>
+            <groupId>me.leeshawm</groupId>
             <artifactId>sa-base</artifactId>
             <version>3.0.0</version>
         </dependency>
@@ -31,7 +31,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>net.lab1024.sa.admin.AdminApplication</mainClass>
+                    <mainClass>me.leeshawm.aienglish.admin.AdminApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

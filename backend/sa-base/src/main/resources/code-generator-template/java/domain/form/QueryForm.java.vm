@@ -1,6 +1,6 @@
 package ${packageName};
 
-import net.lab1024.sa.base.common.domain.PageParam;
+import me.leeshawm.aienglish.base.common.domain.PageParam;
 #foreach ($importClass in $importPackageList)
 $importClass
 #end

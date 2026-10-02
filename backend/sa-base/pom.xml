@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>net.lab1024</groupId>
+        <groupId>me.leeshawm</groupId>
         <artifactId>sa-parent</artifactId>
         <version>3.0.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -12,7 +12,7 @@
     <version>3.0.0</version>
 
     <name>sa-base</name>
-    <description>sa-base project</description>
+    <description>基于生成式大模型的小学英语辅助学习系统-公共基础能力模块</description>
 
     <dependencies>
 
