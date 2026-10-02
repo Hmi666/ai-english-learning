@@ -1,0 +1,56 @@
+# 本地开发基础设施（MySQL 8 + Redis 7）
+#
+# 用途：为 backend 的 dev profile 提供与脚手架默认配置一致的本地依赖。
+# 启动： docker compose -f deploy/docker-compose.yml up -d
+# 停止： docker compose -f deploy/docker-compose.yml down
+# 清库： docker compose -f deploy/docker-compose.yml down -v   # 会删除数据卷，慎用
+#
+# 首次启动时，database/migrations 下的 *.sql 会自动导入，
+# 生成后端 dev 配置使用的 smart_admin_v3 库。
+# 注意：docker-entrypoint-initdb.d 只在数据卷为空时执行，改动 SQL 后需重新初始化数据卷。
+
+name: ai-english-learning
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ael-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: SmartAdmin666
+      TZ: Asia/Shanghai
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_general_ci
+      - --default-time-zone=+08:00
+      - --lower-case-table-names=0
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ../database/migrations:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  redis:
+    image: redis:7-alpine
+    container_name: ael-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+volumes:
+  mysql-data:
+  redis-data:
