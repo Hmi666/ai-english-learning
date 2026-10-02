@@ -354,16 +354,45 @@
                 </includes>
             </resource>
 
+            <!--
+                非 yaml 资源（log4j2-spring.xml、spy.properties 等）原样拷贝。
+                必须排除 *.yaml：本资源块的 include 是 *.*，同样会匹配 application.yaml，
+                而它在上面那个 filtering=true 的资源块之后执行，
+                会把已过滤的 application.yaml 用未过滤的原文覆盖，
+                导致 spring.profiles.active 变成字面量 '@profiles.active@'。
+            -->
             <resource>
                 <directory>src/main/resources/${profiles.active}</directory>
                 <filtering>false</filtering>
                 <includes>
                     <include>*.*</include>
                 </includes>
+                <excludes>
+                    <exclude>*.yaml</exclude>
+                </excludes>
             </resource>
         </resources>
 
         <plugins>
+            <!--
+                资源过滤：只把 @...@ 当作需要替换的占位符，禁用默认的 ${...} 分隔符。
+                原因：本项目未继承 spring-boot-starter-parent，@...@ 不是 Maven 默认分隔符，
+                未配置时 src/main/resources/${profiles.active}/*.yaml 会被原样拷贝，
+                导致 application.yaml 中的 spring.profiles.active 变成字面量 '@profiles.active@'，
+                并进一步污染 log-directory 路径。
+                同时必须关闭 ${...} 过滤，否则 yaml 中的 Spring 占位符
+                （如 ${user.home}、${project.name}）会被 Maven 提前替换掉。
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimiter>@</delimiter>
+                    </delimiters>
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

@@ -99,7 +99,7 @@ file:
   storage:
     mode: local
     local:
-      upload-path: /home/smart_admin_v3/upload/   #文件上传目录
+      upload-path: ${localPath:${user.home}}/smart_admin_v3/upload/   #文件上传目录（macOS 下 /home 不可写，默认落到用户目录；Linux/CI 可用 -DlocalPath=/home 覆盖）
       url-prefix:
     cloud:
       region: oss-cn-hangzhou
