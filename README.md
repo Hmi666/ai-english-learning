@@ -18,6 +18,7 @@
 | [产品需求书](docs/产品需求书.md) | 完整产品规划，包含二期及后续方向 |
 | [脚手架来源说明](docs/脚手架来源说明.md) | 脚手架来源 commit、导入范围、许可证义务 |
 | [环境与运行说明](docs/环境与运行说明.md) | 工具链版本、启动步骤、初始化阶段发现的问题 |
+| [Git 工作流与发布流程](docs/Git工作流与发布流程.md) | 分支模型、提交规范、版本号规则与发布流程 |
 
 ## 目录结构
 
@@ -114,7 +115,7 @@ pnpm dev
 | `release/*` | 发布准备 | 从 `develop` 切出，验收通过后合并到 `master` 并回合并 `develop` |
 | `hotfix/*` | 线上紧急修复 | 从 `master` 切出，修复后同时合并 `master` 与 `develop` |
 
-提交信息使用 `type(scope): subject` 形式，`type` 取值 `feat` / `fix` / `docs` / `refactor` / `test` / `chore` / `build`。完整约定与发布流程见 [环境与运行说明](docs/环境与运行说明.md)。
+提交信息使用 `type(scope): subject` 形式，`type` 取值 `feat` / `fix` / `docs` / `refactor` / `test` / `chore` / `build`。完整约定与发布流程见 [Git 工作流与发布流程](docs/Git工作流与发布流程.md)。
 
 ## 许可证
 
